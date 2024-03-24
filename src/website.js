@@ -17,7 +17,8 @@ function createHeader() {
 
 function createNav() {
     const nav = document.createElement("nav");
-
+    nav.classList.add("navbar");
+    
     const homeBtn = document.createElement("button");
     homeBtn.classList.add("nav-btn");
     homeBtn.classList.add("active");
@@ -27,7 +28,7 @@ function createNav() {
         setActiveBtn(homeBtn);
         loadHome();
     });
-
+    
     const menuBtn = document.createElement("button");
     menuBtn.classList.add("nav-btn");
     menuBtn.textContent = "Menu";
@@ -36,7 +37,7 @@ function createNav() {
         setActiveBtn(menuBtn);
         loadMenu();
     });
-
+    
     const contactBtn = document.createElement("button");
     contactBtn.classList.add("nav-btn");
     contactBtn.textContent = "Contact";
@@ -49,7 +50,7 @@ function createNav() {
     nav.appendChild(homeBtn);
     nav.appendChild(menuBtn);
     nav.appendChild(contactBtn);
-
+    
     return nav;
 }
 
@@ -61,4 +62,33 @@ function setActiveBtn(btn) {
     btn.classList.add("active");
 }
 
-export default createHeader;
+function createMain() {
+    const main = document.createElement("main");
+    return main;
+}
+
+function createFooter() {
+    const footer = document.createElement("footer");
+    
+    const copyright = document.createElement("p");
+    copyright.textContent = `Copyright © ${new Date().getFullYear()} reyesvictor1`;
+    
+    footer.appendChild(copyright);
+    
+    return footer;
+}
+
+function loadWebsite() {
+    const content = document.querySelector("#content");
+    const header = createHeader();
+    const main = createMain();
+    const footer = createFooter();
+    
+    content.appendChild(header);
+    content.appendChild(main);
+    content.appendChild(footer);
+    
+    loadHome();
+}
+
+export default loadWebsite;

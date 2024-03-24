@@ -1,14 +1,5 @@
 // webpack entry point
 
-import createHeader from "./header";
-import createMain from "./main";
-import createFooter from "./footer";
+import loadWebsite from "./website";
 
-const content = document.querySelector("#content");
-const header = createHeader();
-const main = createMain();
-const footer = createFooter();
-
-content.appendChild(header);
-content.appendChild(main);
-content.appendChild(footer);
+loadWebsite();
