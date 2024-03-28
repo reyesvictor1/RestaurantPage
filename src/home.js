@@ -18,7 +18,7 @@ function createHome() {
 
     const image = document.createElement("img");
     image.classList.add("image");
-    image.src = "images/steinheil_schnitzel.jpg";
+    image.src = "images/pork_schnitzel.jpg";
     image.alt = "Image of the restaurant";
 
     const since = document.createElement("p");

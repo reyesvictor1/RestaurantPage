@@ -9,7 +9,7 @@ function createMenu() {
     menu.classList.add("menu");
     
     menu.appendChild(createMenuItem(
-        "Steinheil Schnitzel",
+        "Pork Schnitzel",
         "Viennese-style pork schnitzel / fried potatoes or french fries / salad",
         "€17.90"
     ));
