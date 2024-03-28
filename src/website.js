@@ -5,11 +5,27 @@ import loadContact from "./contact";
 function createHeader() {
     const header = document.createElement("header");
     
+    const headerTop = document.createElement("div");
+    headerTop.classList.add("header-top");
+    
+    const flags = [];
+    for (let i = 0; i < 2; i++) {
+        const flagGermany = document.createElement("img");
+        flagGermany.classList.add("flag-germany");
+        flagGermany.src = "images/germany.jpg";
+        flagGermany.alt = "Flag of Germany";
+        flags.push(flagGermany);
+    }
+    
     const restaurantName = document.createElement("h1");
     restaurantName.classList.add("restaurant-name");
     restaurantName.textContent = "Vicmar Restaurant";
     
-    header.appendChild(restaurantName);
+    headerTop.appendChild(flags[0]);
+    headerTop.appendChild(restaurantName);
+    headerTop.appendChild(flags[1]);
+    
+    header.appendChild(headerTop);
     header.appendChild(createNav());
     
     return header;
@@ -73,7 +89,17 @@ function createFooter() {
     const copyright = document.createElement("p");
     copyright.textContent = `Copyright © ${new Date().getFullYear()} reyesvictor1`;
     
+    const githubLink = document.createElement("a");
+    githubLink.href = "https://github.com/reyesvictor1";
+    githubLink.target = "blank";
+    
+    const githubIcon = document.createElement("img");
+    githubIcon.classList.add("github-icon");
+    githubIcon.src = "images/github.png";
+    
+    githubLink.appendChild(githubIcon);
     footer.appendChild(copyright);
+    footer.appendChild(githubLink);
     
     return footer;
 }

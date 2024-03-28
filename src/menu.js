@@ -4,59 +4,75 @@ function loadMenu() {
     main.appendChild(createMenu());
 }
 
-class MenuItem {
-    constructor(name, description, price, image) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-}
-
 function createMenu() {
     const menu = document.createElement("div");
     menu.classList.add("menu");
     
-    const menuItems = [];
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    menuItems.push(new MenuItem("Currywurst", "Curried sausage / french fries", "€10.90"));
-    
-    menuItems.forEach((item) => {
-        menu.appendChild(createMenuDiv(item));
-    });
+    menu.appendChild(createMenuItem(
+        "Steinheil Schnitzel",
+        "Viennese-style pork schnitzel / fried potatoes or french fries / salad",
+        "€17.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Turkey Schnitzel",
+        "Viennese-style turkey schnitzel / fried potatoes or french fries / salad",
+        "€17.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Currywurst",
+        "Curried sausage / french fries",
+        "€10.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Chili con Carne",
+        "Chili con carne (spicy) / sour cream / baguette",
+        "€9.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Turkey Steak",
+        "Turkey steak / baked potato / curd cheese with herbs / vegetables",
+        "€16.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Feta Cheese Salad",
+        "Salad / Balsamic dressing / grilled feta cheese / olives / peppers",
+        "€11.90"
+    ));
+    menu.appendChild(createMenuItem(
+        "Fried Eggs",
+        "3 fried eggs / bacon / feta cheese / salad",
+        "€10.90"
+    ));
 
     return menu;
 }
 
-function createMenuDiv(menuItem) {
-    const menuDiv = document.createElement("div");
-    menuDiv.classList.add("menu-item");
+function createMenuItem(name, description, price) {
+    const menuItem = document.createElement("div");
+    menuItem.classList.add("menu-item");
 
-    const name = document.createElement("h2");
-    name.classList.add("name");
-    name.textContent = menuItem.name;
+    const itemName = document.createElement("h2");
+    itemName.classList.add("name");
+    itemName.textContent = name;
 
-    const image = document.createElement("img");
-    image.src = `images/${menuItem.name.toLowerCase()}.jpg`;
-    image.alt = `${menuItem.name}`;
+    const itemImage = document.createElement("img");
+    itemImage.src = `images/${name.replace(/\s/g, '_').toLowerCase()}.jpg`;
+    itemImage.alt = `${name}`;
 
-    const description = document.createElement("p");
-    description.classList.add("description");
-    description.textContent = menuItem.description;
+    const itemDescription = document.createElement("p");
+    itemDescription.classList.add("description");
+    itemDescription.textContent = description;
 
-    const price = document.createElement("p");
-    price.classList.add("price");
-    price.textContent = menuItem.price;
+    const itemPrice = document.createElement("p");
+    itemPrice.classList.add("price");
+    itemPrice.textContent = price;
 
-    menuDiv.appendChild(name);
-    menuDiv.appendChild(image);
-    menuDiv.appendChild(description);
-    menuDiv.appendChild(price);
+    menuItem.appendChild(itemName);
+    menuItem.appendChild(itemImage);
+    menuItem.appendChild(itemDescription);
+    menuItem.appendChild(itemPrice);
 
-    return menuDiv;
+    return menuItem;
 }
 
 
